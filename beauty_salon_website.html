@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Sans+JP:wght@300;400&family=Montserrat:wght@100;200;300&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --cream:#faf7f2;
+  --white:#ffffff;
+  --blush:#e8d5c4;
+  --rose:#b07a6e;
+  --dark:#1c1410;
+  --muted:#8a7a72;
+  --border:#e0d4c8;
+}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--dark);font-family:'Noto Sans JP',sans-serif;font-weight:300;overflow-x:hidden}
+
+/* NAV */
+nav{
+  position:fixed;top:0;width:100%;z-index:100;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:24px 60px;
+  background:rgba(250,247,242,0.95);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border)
+}
+.logo{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;letter-spacing:.2em;color:var(--dark)}
+.logo em{font-style:italic;color:var(--rose)}
+.nav-links{display:flex;gap:40px;list-style:none}
+.nav-links a{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .3s}
+.nav-links a:hover{color:var(--rose)}
+
+/* HERO */
+.hero{
+  min-height:100vh;display:grid;grid-template-columns:55% 45%;
+  padding-top:80px
+}
+.hero-left{
+  background:var(--blush);position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center
+}
+.hero-visual{
+  width:100%;height:100%;
+  background:linear-gradient(135deg,#e8d5c4 0%,#d4b8a8 50%,#c4a090 100%);
+  display:flex;align-items:center;justify-content:center;position:relative
+}
+.hero-circle{
+  width:320px;height:320px;border-radius:50%;
+  background:linear-gradient(145deg,#f5ede6,#dfc4b4);
+  border:1px solid rgba(176,122,110,0.3);
+  display:flex;align-items:center;justify-content:center;
+  font-size:100px;position:relative;z-index:1
+}
+.hero-deco{
+  position:absolute;font-family:'Cormorant Garamond',serif;
+  font-size:160px;font-weight:300;font-style:italic;
+  color:rgba(28,20,16,0.05);line-height:1;user-select:none
+}
+.hero-right{
+  display:flex;flex-direction:column;justify-content:center;
+  padding:80px 60px 80px 64px
+}
+.hero-tag{
+  font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.35em;
+  text-transform:uppercase;color:var(--rose);margin-bottom:32px
+}
+.hero-title{
+  font-family:'Cormorant Garamond',serif;font-size:64px;font-weight:300;
+  line-height:1.15;margin-bottom:12px;color:var(--dark)
+}
+.hero-title em{font-style:italic;color:var(--rose)}
+.hero-subtitle{
+  font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;font-style:italic;
+  color:var(--muted);letter-spacing:.1em;margin-bottom:48px
+}
+.hero-text{font-size:13px;line-height:2.2;color:var(--muted);margin-bottom:48px;max-width:340px}
+.btn-primary{
+  display:inline-block;padding:16px 48px;
+  background:var(--rose);color:var(--white);
+  font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.25em;text-transform:uppercase;
+  text-decoration:none;transition:background .3s;border:none;cursor:pointer
+}
+.btn-primary:hover{background:var(--dark)}
+.btn-outline{
+  display:inline-block;padding:15px 40px;margin-left:16px;
+  border:1px solid var(--border);color:var(--muted);
+  font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.25em;text-transform:uppercase;
+  text-decoration:none;transition:all .3s
+}
+.btn-outline:hover{border-color:var(--rose);color:var(--rose)}
+
+/* PHILOSOPHY */
+.philosophy{padding:120px 60px;text-align:center;border-bottom:1px solid var(--border)}
+.section-label{
+  font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.35em;
+  text-transform:uppercase;color:var(--rose);margin-bottom:24px
+}
+.philosophy h2{
+  font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;font-style:italic;
+  color:var(--dark);margin-bottom:32px;line-height:1.3
+}
+.philosophy p{font-size:13px;line-height:2.4;color:var(--muted);max-width:560px;margin:0 auto}
+
+/* MENU */
+.menu{padding:100px 60px;background:var(--white)}
+.menu-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:64px}
+.menu-header h2{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:300;color:var(--dark)}
+.menu-header span{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+.menu-item{
+  background:var(--white);padding:48px 36px;
+  transition:background .3s
+}
+.menu-item:hover{background:var(--cream)}
+.menu-num{
+  font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;font-style:italic;
+  color:var(--blush);line-height:1;margin-bottom:20px
+}
+.menu-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--dark);margin-bottom:8px}
+.menu-name-ja{font-size:11px;letter-spacing:.1em;color:var(--muted);margin-bottom:20px}
+.menu-desc{font-size:12px;line-height:2;color:var(--muted);margin-bottom:24px}
+.menu-price{font-family:'Montserrat',sans-serif;font-size:13px;letter-spacing:.05em;color:var(--rose)}
+.menu-price small{font-size:9px;letter-spacing:.1em;color:var(--muted);margin-left:4px}
+
+/* STAFF */
+.staff{padding:100px 60px;background:var(--cream)}
+.staff h2{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:300;font-style:italic;color:var(--dark);margin-bottom:64px}
+.staff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.staff-card{text-align:center}
+.staff-photo{
+  width:160px;height:160px;border-radius:50%;margin:0 auto 24px;
+  background:linear-gradient(135deg,#e8d5c4,#d4b8a8);
+  display:flex;align-items:center;justify-content:center;font-size:48px;
+  border:2px solid var(--border)
+}
+.staff-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--dark);margin-bottom:4px}
+.staff-role{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:var(--rose);margin-bottom:16px}
+.staff-bio{font-size:12px;line-height:2;color:var(--muted)}
+
+/* INFO */
+.info{padding:100px 60px;background:var(--dark);display:grid;grid-template-columns:1fr 1fr;gap:80px}
+.info h2{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:300;font-style:italic;color:var(--cream);margin-bottom:48px}
+.info-row{display:flex;justify-content:space-between;padding:16px 0;border-bottom:1px solid rgba(255,255,255,0.08)}
+.info-row dt{font-size:11px;color:rgba(250,247,242,0.4);letter-spacing:.05em}
+.info-row dd{font-size:12px;color:var(--cream);text-align:right;line-height:1.8}
+.map-placeholder{
+  background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);
+  border-radius:2px;display:flex;align-items:center;justify-content:center;
+  min-height:200px;color:rgba(250,247,242,0.2);font-size:12px;letter-spacing:.1em;margin-top:32px
+}
+
+/* RESERVE */
+.reserve{
+  padding:120px 60px;text-align:center;
+  background:linear-gradient(135deg,var(--blush) 0%,#d4b8a8 100%)
+}
+.reserve h2{font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:300;font-style:italic;color:var(--dark);margin-bottom:16px}
+.reserve p{font-size:13px;color:var(--muted);margin-bottom:48px;line-height:2}
+.reserve-tel{font-family:'Montserrat',sans-serif;font-size:32px;font-weight:100;letter-spacing:.15em;color:var(--dark);margin-bottom:8px}
+.reserve-hours{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.2em;color:var(--muted);margin-bottom:48px}
+
+/* FOOTER */
+footer{background:var(--dark);padding:48px 60px;display:flex;justify-content:space-between;align-items:center}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;color:var(--cream);letter-spacing:.2em}
+.footer-logo em{font-style:italic;color:var(--rose)}
+footer p{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.15em;color:rgba(250,247,242,0.3)}
+
+/* Animation */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.hero-tag{animation:fadeUp .8s ease both}
+.hero-title{animation:fadeUp .8s .1s ease both}
+.hero-subtitle{animation:fadeUp .8s .2s ease both}
+.hero-text{animation:fadeUp .8s .3s ease both}
+.btn-primary,.btn-outline{animation:fadeUp .8s .4s ease both}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Atelier <em>Lune</em></div>
+  <ul class="nav-links">
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#staff">Stylist</a></li>
+    <li><a href="#info">Access</a></li>
+    <li><a href="#reserve">Reserve</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-visual">
+      <div class="hero-deco">L</div>
+      <div class="hero-circle">✂️</div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <p class="hero-tag">Hair Salon — Yokohama Motomachi</p>
+    <h1 class="hero-title">Atelier<br><em>Lune</em></h1>
+    <p class="hero-subtitle">あなたらしさを、もっと美しく</p>
+    <p class="hero-text">髪は、その人の生き方を映す鏡。丁寧なカウンセリングと確かな技術で、あなただけのスタイルを一緒に見つけます。</p>
+    <div>
+      <a href="#reserve" class="btn-primary">ご予約はこちら</a>
+      <a href="#menu" class="btn-outline">メニューを見る</a>
+    </div>
+  </div>
+</section>
+
+<section class="philosophy">
+  <p class="section-label">Our Philosophy</p>
+  <h2>"美しさとは、<br>自分を好きになること"</h2>
+  <p>Atelier Luneは、横浜元町に佇む小さなヘアサロン。流行を追うのではなく、その方の骨格・髪質・ライフスタイルに寄り添ったスタイル提案を大切にしています。使用する薬剤はすべてオーガニック認証品。髪と頭皮に優しい施術で、美しさを長く保つお手伝いをいたします。</p>
+</section>
+
+<section class="menu" id="menu">
+  <div class="menu-header">
+    <h2>Menu</h2>
+    <span>料金メニュー</span>
+  </div>
+  <div class="menu-grid">
+    <div class="menu-item">
+      <div class="menu-num">01</div>
+      <div class="menu-name">Cut</div>
+      <div class="menu-name-ja">カット</div>
+      <p class="menu-desc">丁寧なカウンセリングのあと、骨格・髪質に合わせたカットで、毎朝のスタイリングが楽になるデザインをご提案。</p>
+      <div class="menu-price">¥ 6,600 <small>tax in</small></div>
+    </div>
+    <div class="menu-item">
+      <div class="menu-num">02</div>
+      <div class="menu-name">Color</div>
+      <div class="menu-name-ja">カラー</div>
+      <p class="menu-desc">ダメージを最小限に抑えたオーガニックカラーを使用。透明感のある発色と、艶やかな仕上がりが特長です。</p>
+      <div class="menu-price">¥ 9,900〜 <small>tax in</small></div>
+    </div>
+    <div class="menu-item">
+      <div class="menu-num">03</div>
+      <div class="menu-name">Treatment</div>
+      <div class="menu-name-ja">トリートメント</div>
+      <p class="menu-desc">髪の内部から補修する集中ケア。施術後はまるでシルクのような指通りと輝きを実感していただけます。</p>
+      <div class="menu-price">¥ 5,500〜 <small>tax in</small></div>
+    </div>
+    <div class="menu-item">
+      <div class="menu-num">04</div>
+      <div class="menu-name">Perm</div>
+      <div class="menu-name-ja">パーマ</div>
+      <p class="menu-desc">デジタルパーマから水パーマまで。ふんわりやわらかいカールや、無造作なウェーブをデザインします。</p>
+      <div class="menu-price">¥ 13,200〜 <small>tax in</small></div>
+    </div>
+    <div class="menu-item">
+      <div class="menu-num">05</div>
+      <div class="menu-name">Head Spa</div>
+      <div class="menu-name-ja">ヘッドスパ</div>
+      <p class="menu-desc">頭皮の血行を促進し、髪の成長を助けるスペシャルケア。極上のリラクゼーションをお楽しみください。</p>
+      <div class="menu-price">¥ 7,700 <small>tax in</small></div>
+    </div>
+    <div class="menu-item">
+      <div class="menu-num">06</div>
+      <div class="menu-name">Full Course</div>
+      <div class="menu-name-ja">フルコース</div>
+      <p class="menu-desc">カット＋カラー＋トリートメントのセットメニュー。まとめてお任せいただくお得なコースです。</p>
+      <div class="menu-price">¥ 19,800 <small>tax in</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="staff" id="staff">
+  <h2>Our Stylists</h2>
+  <div class="staff-grid">
+    <div class="staff-card">
+      <div class="staff-photo">👩</div>
+      <div class="staff-name">Yuki Aoyama</div>
+      <div class="staff-role">Art Director</div>
+      <p class="staff-bio">パリ・ロンドンでの修行を経て帰国。トレンドと普遍的な美しさを融合させたスタイルが得意。</p>
+    </div>
+    <div class="staff-card">
+      <div class="staff-photo">👨</div>
+      <div class="staff-name">Kei Nakamura</div>
+      <div class="staff-role">Senior Stylist</div>
+      <p class="staff-bio">カラーリングのスペシャリスト。透明感カラーとハイライトテクニックに定評があります。</p>
+    </div>
+    <div class="staff-card">
+      <div class="staff-photo">👩</div>
+      <div class="staff-name">Saki Inoue</div>
+      <div class="staff-role">Stylist</div>
+      <p class="staff-bio">ヘッドスパとトリートメントのプロ。頭皮環境から美しい髪づくりをサポートします。</p>
+    </div>
+  </div>
+</section>
+
+<section class="info" id="info">
+  <div>
+    <h2>Access</h2>
+    <dl>
+      <div class="info-row"><dt>住所</dt><dd>横浜市中区元町2-8-10<br>ルーンビル 2F</dd></div>
+      <div class="info-row"><dt>営業時間</dt><dd>10:00 – 20:00</dd></div>
+      <div class="info-row"><dt>定休日</dt><dd>火曜日・第3月曜日</dd></div>
+      <div class="info-row"><dt>最寄り駅</dt><dd>みなとみらい線 元町・中華街駅<br>徒歩3分</dd></div>
+      <div class="info-row"><dt>電話</dt><dd>045-XXX-XXXX</dd></div>
+    </dl>
+  </div>
+  <div>
+    <h2>SNS & Web</h2>
+    <dl>
+      <div class="info-row"><dt>Instagram</dt><dd>@atelier_lune_yokohama</dd></div>
+      <div class="info-row"><dt>LINE予約</dt><dd>@atelier-lune</dd></div>
+      <div class="info-row"><dt>カード</dt><dd>各種クレジットカード対応</dd></div>
+      <div class="info-row"><dt>駐車場</dt><dd>近隣コインパーキングをご利用ください</dd></div>
+    </dl>
+    <div class="map-placeholder">Map</div>
+  </div>
+</section>
+
+<section class="reserve" id="reserve">
+  <p class="section-label">Reservation</p>
+  <h2>ご予約</h2>
+  <p>お電話・LINEにてご予約を承っております。<br>初めての方もお気軽にどうぞ。</p>
+  <div class="reserve-tel">045-XXX-XXXX</div>
+  <div class="reserve-hours">10:00 – 19:00 受付 ／ 火曜定休</div>
+  <a href="#" class="btn-primary">LINE で予約する</a>
+</section>
+
+<footer>
+  <div class="footer-logo">Atelier <em>Lune</em></div>
+  <p>© 2024 Atelier Lune. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
